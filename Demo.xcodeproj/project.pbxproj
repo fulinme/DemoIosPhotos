@@ -99,6 +99,10 @@
 		041A88C8243FE64A0085F27D /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				041A88FD243FE7140085F27D /* Networking */,
+				041A88FA243FE6ED0085F27D /* Models */,
+				041A88FB243FE6F70085F27D /* Views */,
+				041A88FC243FE7040085F27D /* Presenters */,
 				041A88C9243FE64A0085F27D /* AppDelegate.swift */,
 				041A88CB243FE64A0085F27D /* SceneDelegate.swift */,
 				041A88CD243FE64A0085F27D /* ViewController.swift */,
@@ -126,6 +130,34 @@
 				041A88ED243FE64D0085F27D /* Info.plist */,
 			);
 			path = DemoUITests;
+			sourceTree = "<group>";
+		};
+		041A88FA243FE6ED0085F27D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		041A88FB243FE6F70085F27D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		041A88FC243FE7040085F27D /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		041A88FD243FE7140085F27D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

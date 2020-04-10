@@ -17,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="ap3-vT-nJQ">
+                        <rect key="frame" x="14" y="11" width="21" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </activityIndicatorView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jv2-lR-QCn">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <constraints>
@@ -33,7 +37,11 @@
                 <constraint firstAttribute="trailing" secondItem="jv2-lR-QCn" secondAttribute="trailing" id="wgo-dw-ruW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <point key="canvasLocation" x="-43" y="129"/>
+            <connections>
+                <outlet property="indicatorView" destination="ap3-vT-nJQ" id="saS-eq-ntq"/>
+                <outlet property="uiImageView" destination="jv2-lR-QCn" id="n7f-by-qJD"/>
+            </connections>
+            <point key="canvasLocation" x="-43.478260869565219" y="127.90178571428571"/>
         </collectionViewCell>
     </objects>
 </document>

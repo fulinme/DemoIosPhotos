@@ -19,6 +19,8 @@
 		041A8901243FEFB10085F27D /* PhotosViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A8900243FEFB10085F27D /* PhotosViewPresenter.swift */; };
 		041A890624401A570085F27D /* PhotosUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A890424401A570085F27D /* PhotosUICollectionViewCell.swift */; };
 		041A890724401A570085F27D /* PhotosUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A890524401A570085F27D /* PhotosUICollectionViewCell.xib */; };
+		041A890C2440652F0085F27D /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A890B2440652F0085F27D /* WebService.swift */; };
+		041A890E244069490085F27D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A890D244069490085F27D /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		041A8900243FEFB10085F27D /* PhotosViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewPresenter.swift; sourceTree = "<group>"; };
 		041A890424401A570085F27D /* PhotosUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosUICollectionViewCell.swift; sourceTree = "<group>"; };
 		041A890524401A570085F27D /* PhotosUICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosUICollectionViewCell.xib; sourceTree = "<group>"; };
+		041A890B2440652F0085F27D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		041A890D244069490085F27D /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		041A88C8243FE64A0085F27D /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				041A8908244034FA0085F27D /* Extension */,
 				041A88FD243FE7140085F27D /* Networking */,
 				041A88FA243FE6ED0085F27D /* Models */,
 				041A88FB243FE6F70085F27D /* Views */,
@@ -117,6 +122,7 @@
 				041A88D2243FE64D0085F27D /* Assets.xcassets */,
 				041A88D4243FE64D0085F27D /* LaunchScreen.storyboard */,
 				041A88D7243FE64D0085F27D /* Info.plist */,
+				041A890D244069490085F27D /* ImageCache.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -168,8 +174,16 @@
 		041A88FD243FE7140085F27D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				041A890B2440652F0085F27D /* WebService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		041A8908244034FA0085F27D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +320,8 @@
 			files = (
 				041A890624401A570085F27D /* PhotosUICollectionViewCell.swift in Sources */,
 				041A88FF243FE7760085F27D /* Photos.swift in Sources */,
+				041A890E244069490085F27D /* ImageCache.swift in Sources */,
+				041A890C2440652F0085F27D /* WebService.swift in Sources */,
 				041A88CE243FE64A0085F27D /* PhotosViewController.swift in Sources */,
 				041A88CA243FE64A0085F27D /* AppDelegate.swift in Sources */,
 				041A8901243FEFB10085F27D /* PhotosViewPresenter.swift in Sources */,

@@ -15,13 +15,13 @@ struct photo: Codable {
     let url, thumbnailURL: String?
 
     enum CodingKeys: String, CodingKey {
-        case albumID
+        case albumID = "albumId"
         case id, title, url
-        case thumbnailURL
+        case thumbnailURL = "thumbnailUrl"
     }
 }
 
  
 
-typealias photos = [photo]
+typealias Photos = [photo]
 

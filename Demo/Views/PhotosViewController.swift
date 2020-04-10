@@ -10,9 +10,9 @@ import UIKit
 
 protocol PhotosViewProtocol : AnyObject {
     
-    func receivedPhotos()
+    func receivedPhotos(photosArray: [String])
     
-    func receivedPhoto()
+    func receivedPhoto(uiImage: UIImage, index: Int)
 }
 
 
@@ -20,7 +20,7 @@ class PhotosViewController: UIViewController {
     
     
 
-    var data : [String] = ["https://via.placeholder.com/150/92c952", "https://via.placeholder.com/150/771796"]
+    var data : [String] = []
     
     fileprivate lazy var presenter : PhotosPresenter = {
         return PhotosPresenter(view: self)
@@ -36,16 +36,14 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.getPhotoList()
-        
         // Do any additional setup after loading the view.
         
         photosUICollectionView.register(UINib(nibName: "PhotosUICollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotosUICollectionViewCell")
-        
-        
-    
         photosUICollectionView.dataSource = self
         photosUICollectionView.delegate = self
+        
+        
+        presenter.getPhotoList()
  
     }
 
@@ -67,15 +65,28 @@ extension PhotosViewController: UICollectionViewDataSource {
         
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosUICollectionViewCell", for: indexPath) as! PhotosUICollectionViewCell
         
-        cell.setData()
         
         return cell
     }
+    
+    
+   
+    
 }
 
 extension PhotosViewController: UICollectionViewDelegate {
 
-
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+           
+        let photo = data[indexPath.row]
+        
+        presenter.fetchPhoto(photoUrlString: photo, index: indexPath.row)
+        
+        
+       }
+    
+    
+    
 
 }
 
@@ -83,13 +94,26 @@ extension PhotosViewController: UICollectionViewDelegate {
 
 
 extension PhotosViewController: PhotosViewProtocol {
-   
     
-    func receivedPhotos() {
+    func receivedPhotos(photosArray: [String]) {
+        
+        print("***receivedphotos****")
+        data = photosArray
+       
+        self.photosUICollectionView.reloadData()
         
     }
     
-    func receivedPhoto() {
+    
+    
+    func receivedPhoto(uiImage: UIImage, index: Int) {
+        
+        let photoIndexPath = IndexPath(item: index, section: 0)
+
+        if let cell = self.photosUICollectionView.cellForItem(at: photoIndexPath)
+          as? PhotosUICollectionViewCell {
+            cell.setData(with: uiImage)
+        }
         
     }
     

@@ -26,7 +26,7 @@ class PhotosUICollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-       // update(with: nil)
+        update(with: nil)
     }
     
     func update(with image: UIImage?) {

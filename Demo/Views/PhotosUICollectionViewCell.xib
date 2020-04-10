@@ -31,10 +31,10 @@
             </view>
             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="jv2-lR-QCn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Elf-pp-F3K"/>
-                <constraint firstAttribute="bottom" secondItem="jv2-lR-QCn" secondAttribute="bottom" id="P8q-q3-EeD"/>
-                <constraint firstItem="jv2-lR-QCn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="l2r-N3-peE"/>
-                <constraint firstAttribute="trailing" secondItem="jv2-lR-QCn" secondAttribute="trailing" id="wgo-dw-ruW"/>
+                <constraint firstItem="jv2-lR-QCn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3ZP-PK-DZR"/>
+                <constraint firstItem="jv2-lR-QCn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Uoa-4x-cyk"/>
+                <constraint firstAttribute="bottom" secondItem="jv2-lR-QCn" secondAttribute="bottom" id="ZuM-SM-oMf"/>
+                <constraint firstAttribute="trailing" secondItem="jv2-lR-QCn" secondAttribute="trailing" id="hWm-Vb-Geg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>

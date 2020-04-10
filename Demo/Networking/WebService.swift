@@ -36,18 +36,18 @@ class WebService {
                 
                        let photosStrArray = photos.compactMap { $0.thumbnailURL }
                        
-                       OperationQueue.main.addOperation {
+                       DispatchQueue.main.async{
                          successHandler(photosStrArray)
                        }
                    }
                    catch {
-                     OperationQueue.main.addOperation {
+                     DispatchQueue.main.async {
                         failureHandler()
                      }
                    }
             }
             else {
-                OperationQueue.main.addOperation {
+                DispatchQueue.main.async {
                     failureHandler()
                 }
             }
@@ -62,7 +62,7 @@ class WebService {
     static func fetchImage(photoURL: String, successHandler: @escaping (UIImage) -> Void, failureHandler: @escaping () -> Void) {
         
         if let image = imageCache.image(forKey: photoURL) {
-            OperationQueue.main.addOperation {
+            DispatchQueue.main.async {
                 successHandler(image)
             }
         }
@@ -75,14 +75,14 @@ class WebService {
                 
                 self.imageCache.setImage(image, forKey: photoURL)
                 
-                OperationQueue.main.addOperation {
+                DispatchQueue.main.async {
                     successHandler(image)
                 }
                 
             }
             else {
                 
-                OperationQueue.main.addOperation {
+                DispatchQueue.main.async {
                      failureHandler()
                 }
                

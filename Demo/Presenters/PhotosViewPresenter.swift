@@ -20,14 +20,12 @@ protocol PhotosPresenterProtocol {
 
 class PhotosPresenter {
     
-
     weak var view: PhotosViewProtocol?
-    
-    let session = URLSession.shared
     
     required init(view: PhotosViewProtocol) {
         self.view = view
     }
+    
     
     
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class PhotosUICollectionViewCell: UICollectionViewCell {
 
- 
+    static let identifier = "PhotosUICollectionViewCell"
 
     @IBOutlet var uiImageView: UIImageView!
     
@@ -20,16 +20,16 @@ class PhotosUICollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setData(with: nil)
+        update(with: nil)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        setData(with: nil)
+       // update(with: nil)
     }
     
-    func setData(with image: UIImage?) {
+    func update(with image: UIImage?) {
            if let imageToDisplay = image {
                indicatorView.stopAnimating()
                uiImageView.image = imageToDisplay
@@ -37,6 +37,11 @@ class PhotosUICollectionViewCell: UICollectionViewCell {
                indicatorView.startAnimating()
                uiImageView.image = nil
            }
+    }
+    
+    
+    static func nib() -> UINib {
+        return UINib(nibName: identifier, bundle: nil)
     }
     
     

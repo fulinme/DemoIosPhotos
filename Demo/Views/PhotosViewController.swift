@@ -37,8 +37,7 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
-        photosUICollectionView.register(UINib(nibName: "PhotosUICollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotosUICollectionViewCell")
+        photosUICollectionView.register(PhotosUICollectionViewCell.nib(), forCellWithReuseIdentifier: PhotosUICollectionViewCell.identifier)
         photosUICollectionView.dataSource = self
         photosUICollectionView.delegate = self
         
@@ -46,8 +45,7 @@ class PhotosViewController: UIViewController {
         presenter.getPhotoList()
  
     }
-
-
+ 
 }
 
 
@@ -63,7 +61,7 @@ extension PhotosViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosUICollectionViewCell", for: indexPath) as! PhotosUICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosUICollectionViewCell.identifier, for: indexPath) as! PhotosUICollectionViewCell
         
         
         return cell
@@ -75,7 +73,8 @@ extension PhotosViewController: UICollectionViewDataSource {
 }
 
 extension PhotosViewController: UICollectionViewDelegate {
-
+    
+   
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
            
         let photo = data[indexPath.row]
@@ -100,7 +99,7 @@ extension PhotosViewController: PhotosViewProtocol {
         print("***receivedphotos****")
         data = photosArray
        
-        self.photosUICollectionView.reloadData()
+        self.photosUICollectionView.reloadSections(IndexSet(integer: 0))
         
     }
     
@@ -112,7 +111,9 @@ extension PhotosViewController: PhotosViewProtocol {
 
         if let cell = self.photosUICollectionView.cellForItem(at: photoIndexPath)
           as? PhotosUICollectionViewCell {
-            cell.setData(with: uiImage)
+          
+            
+            cell.update(with: uiImage)
         }
         
     }

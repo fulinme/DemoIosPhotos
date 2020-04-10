@@ -18,10 +18,9 @@ protocol PhotosPresenterProtocol {
 
 
 
-
-
 class PhotosPresenter {
     
+
     weak var view: PhotosViewProtocol?
     
 

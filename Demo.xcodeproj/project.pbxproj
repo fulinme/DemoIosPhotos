@@ -17,6 +17,8 @@
 		041A88EC243FE64D0085F27D /* DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A88EB243FE64D0085F27D /* DemoUITests.swift */; };
 		041A88FF243FE7760085F27D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A88FE243FE7760085F27D /* Photos.swift */; };
 		041A8901243FEFB10085F27D /* PhotosViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A8900243FEFB10085F27D /* PhotosViewPresenter.swift */; };
+		041A890624401A570085F27D /* PhotosUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A890424401A570085F27D /* PhotosUICollectionViewCell.swift */; };
+		041A890724401A570085F27D /* PhotosUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A890524401A570085F27D /* PhotosUICollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		041A88ED243FE64D0085F27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041A88FE243FE7760085F27D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		041A8900243FEFB10085F27D /* PhotosViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewPresenter.swift; sourceTree = "<group>"; };
+		041A890424401A570085F27D /* PhotosUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosUICollectionViewCell.swift; sourceTree = "<group>"; };
+		041A890524401A570085F27D /* PhotosUICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosUICollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				041A88CD243FE64A0085F27D /* PhotosViewController.swift */,
+				041A890424401A570085F27D /* PhotosUICollectionViewCell.swift */,
+				041A890524401A570085F27D /* PhotosUICollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041A88D6243FE64D0085F27D /* LaunchScreen.storyboard in Resources */,
+				041A890724401A570085F27D /* PhotosUICollectionViewCell.xib in Resources */,
 				041A88D3243FE64D0085F27D /* Assets.xcassets in Resources */,
 				041A88D1243FE64A0085F27D /* Main.storyboard in Resources */,
 			);
@@ -297,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041A890624401A570085F27D /* PhotosUICollectionViewCell.swift in Sources */,
 				041A88FF243FE7760085F27D /* Photos.swift in Sources */,
 				041A88CE243FE64A0085F27D /* PhotosViewController.swift in Sources */,
 				041A88CA243FE64A0085F27D /* AppDelegate.swift in Sources */,

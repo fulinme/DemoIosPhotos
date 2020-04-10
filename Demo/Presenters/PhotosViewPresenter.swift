@@ -35,50 +35,15 @@ class PhotosPresenter {
 
 extension PhotosPresenter : PhotosPresenterProtocol {
     
-   
     
     func getPhotoList() {
          
-      
-        let url = URL(string: "http://jsonplaceholder.typicode.com/photos")
+        WebService.getPhotosRequest(successHandler: { photos in
+                self.view?.receivedPhotos(photosArray: photos)
+            }, failureHandler: {
+                
+        })
         
-         //UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        var dataTask: URLSessionDataTask?
-        
-        dataTask = session.dataTask(with: url!) {
-            data, response, error in
-            
-            
-            /*DispatchQueue.main.async {
-              UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }*/
-            
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let httpResponse = response as? HTTPURLResponse {
-            
-                if httpResponse.statusCode == 200 {
-                    
-                    let decoder = JSONDecoder()
-                    do {
-                        let photos = try decoder.decode([photo].self, from: data!)
-                 
-                        let photosStrArray = photos.compactMap { $0.thumbnailURL }
-                        
-                        DispatchQueue.main.async {
-                            self.view?.receivedPhotos(photosArray: photosStrArray)
-                        }
-                    }
-                    catch {
-                        print(error)
-                    }
-                    
-                }
-            }
-            
-        }
-        
-        dataTask?.resume()
         
     }
     

@@ -37,13 +37,19 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        setupUI()
+        
+        presenter.getPhotoList()
+ 
+    }
+    
+    
+    func setupUI() {
+        
         photosUICollectionView.register(PhotosUICollectionViewCell.nib(), forCellWithReuseIdentifier: PhotosUICollectionViewCell.identifier)
         photosUICollectionView.dataSource = self
         photosUICollectionView.delegate = self
         
-        
-        presenter.getPhotoList()
- 
     }
  
 }
@@ -77,33 +83,19 @@ extension PhotosViewController: UICollectionViewDelegate {
    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
            
-        let photo = data[indexPath.row]
-        
-        presenter.fetchPhoto(photoUrlString: photo, index: indexPath.row)
-        
+            let photo = data[indexPath.row]
+            presenter.fetchPhoto(photoUrlString: photo, index: indexPath.row)
         
        }
-    
-    
-    
-
 }
-
-
 
 
 extension PhotosViewController: PhotosViewProtocol {
     
     func receivedPhotos(photosArray: [String]) {
-        
-        print("***receivedphotos****")
         data = photosArray
-       
         self.photosUICollectionView.reloadSections(IndexSet(integer: 0))
-        
     }
-    
-    
     
     func receivedPhoto(uiImage: UIImage, index: Int) {
         
@@ -111,8 +103,6 @@ extension PhotosViewController: PhotosViewProtocol {
 
         if let cell = self.photosUICollectionView.cellForItem(at: photoIndexPath)
           as? PhotosUICollectionViewCell {
-          
-            
             cell.update(with: uiImage)
         }
         

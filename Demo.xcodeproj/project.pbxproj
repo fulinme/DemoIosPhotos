@@ -61,6 +61,7 @@
 		041A890524401A570085F27D /* PhotosUICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosUICollectionViewCell.xib; sourceTree = "<group>"; };
 		041A890B2440652F0085F27D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		041A890D244069490085F27D /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		041A890F2441BB160085F27D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 				041A88D4243FE64D0085F27D /* LaunchScreen.storyboard */,
 				041A88D7243FE64D0085F27D /* Info.plist */,
 				041A890D244069490085F27D /* ImageCache.swift */,
+				041A890F2441BB160085F27D /* README.md */,
 			);
 			path = Demo;
 			sourceTree = "<group>";

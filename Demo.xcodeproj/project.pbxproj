@@ -21,6 +21,7 @@
 		041A890724401A570085F27D /* PhotosUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041A890524401A570085F27D /* PhotosUICollectionViewCell.xib */; };
 		041A890C2440652F0085F27D /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A890B2440652F0085F27D /* WebService.swift */; };
 		041A890E244069490085F27D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A890D244069490085F27D /* ImageCache.swift */; };
+		04A4BF9B2441F84C00B0D6FC /* PhotosViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4BF9A2441F84C00B0D6FC /* PhotosViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		041A890B2440652F0085F27D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		041A890D244069490085F27D /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		041A890F2441BB160085F27D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		04A4BF9A2441F84C00B0D6FC /* PhotosViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				041A88E0243FE64D0085F27D /* DemoTests.swift */,
 				041A88E2243FE64D0085F27D /* Info.plist */,
+				04A4BF9A2441F84C00B0D6FC /* PhotosViewTests.swift */,
 			);
 			path = DemoTests;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041A88E1243FE64D0085F27D /* DemoTests.swift in Sources */,
+				04A4BF9B2441F84C00B0D6FC /* PhotosViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,7 +544,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WCY6LMWTDZ;
 				INFOPLIST_FILE = DemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,7 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WCY6LMWTDZ;
 				INFOPLIST_FILE = DemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

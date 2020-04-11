@@ -10,27 +10,25 @@ import UIKit
 
 protocol PhotosViewProtocol : AnyObject {
     
-    func receivedPhotos(photosArray: [String])
+    func receivedPhotoList(photosArray: [String])
+    func failedReceivedPhotoList()
     
     func receivedPhoto(uiImage: UIImage, index: Int)
+    func failedReceivedPhoto()
 }
 
 
 class PhotosViewController: UIViewController {
     
-    
-
     var data : [String] = []
     
     fileprivate lazy var presenter : PhotosPresenter = {
         return PhotosPresenter(view: self)
     }()
     
-    
  
     @IBOutlet weak var photosUICollectionView: UICollectionView!
-    
-    
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -38,14 +36,17 @@ class PhotosViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setupUI()
-        
-        presenter.getPhotoList()
+        loadPhotoList()
  
+    }
+    
+    func loadPhotoList() {
+        indicatorView.startAnimating()
+        presenter.getPhotoList()
     }
     
     
     func setupUI() {
-        
         photosUICollectionView.register(PhotosUICollectionViewCell.nib(), forCellWithReuseIdentifier: PhotosUICollectionViewCell.identifier)
         photosUICollectionView.dataSource = self
         photosUICollectionView.delegate = self
@@ -91,11 +92,17 @@ extension PhotosViewController: UICollectionViewDelegate {
 
 
 extension PhotosViewController: PhotosViewProtocol {
-    
-    func receivedPhotos(photosArray: [String]) {
+  
+    func receivedPhotoList(photosArray: [String]) {
         data = photosArray
+        indicatorView.stopAnimating()
         self.photosUICollectionView.reloadSections(IndexSet(integer: 0))
     }
+    
+    func failedReceivedPhotoList() {
+        indicatorView.stopAnimating()
+    }
+    
     
     func receivedPhoto(uiImage: UIImage, index: Int) {
         
@@ -107,6 +114,10 @@ extension PhotosViewController: PhotosViewProtocol {
         }
         
     }
+    
+    func failedReceivedPhoto() {
+        
+       }
     
     
     

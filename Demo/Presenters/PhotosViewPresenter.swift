@@ -37,9 +37,9 @@ extension PhotosPresenter : PhotosPresenterProtocol {
     func getPhotoList() {
          
         WebService.getPhotosRequest(successHandler: { photos in
-                self.view?.receivedPhotos(photosArray: photos)
+                self.view?.receivedPhotoList(photosArray: photos)
             }, failureHandler: {
-                
+                self.view?.failedReceivedPhotoList()
         })
         
         
@@ -55,7 +55,7 @@ extension PhotosPresenter : PhotosPresenterProtocol {
             self.view?.receivedPhoto(uiImage: uiImage, index: index)
             
         }, failureHandler: {
-                
+            self.view?.failedReceivedPhoto()
                 
         })
         

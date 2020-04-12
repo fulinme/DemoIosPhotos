@@ -20,6 +20,15 @@ protocol PhotosViewProtocol : AnyObject {
 
 class PhotosViewController: UIViewController {
     
+    struct CollectionViewCfg {
+         static let inset: CGFloat = 10
+         static let minimumLineSpacing: CGFloat = 10
+         static let minimumInteritemSpacing: CGFloat = 10
+         static let cellsPerRowForPortrait = 4
+         static let cellsPerRowForLandscape = 6
+    }
+    
+    
     var data : [String] = []
     
     fileprivate lazy var presenter : PhotosPresenter = {
@@ -44,6 +53,16 @@ class PhotosViewController: UIViewController {
         super.viewWillAppear(animated)
         loadPhotoList()
     }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        if let layout = photosUICollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.invalidateLayout()
+        }
+    }
+    
     
     func loadPhotoList() {
         indicatorView.startAnimating()
@@ -93,6 +112,38 @@ extension PhotosViewController: UICollectionViewDelegate {
             presenter.fetchPhoto(photoUrlString: photo, index: indexPath.row)
         
        }
+}
+
+
+extension PhotosViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           
+        
+        let cellsPerRow = UIApplication.shared.statusBarOrientation.isPortrait ? CollectionViewCfg.cellsPerRowForPortrait : CollectionViewCfg.cellsPerRowForLandscape
+            
+        
+        let marginsAndInsets = CollectionViewCfg.inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + CollectionViewCfg.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+        return CGSize(width: itemWidth, height: itemWidth)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: CollectionViewCfg.inset, left: CollectionViewCfg.inset, bottom: CollectionViewCfg.inset, right: CollectionViewCfg.inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return CollectionViewCfg.minimumInteritemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CollectionViewCfg.minimumLineSpacing
+    }
+    
+    
+    
 }
 
 

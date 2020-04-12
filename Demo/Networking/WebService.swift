@@ -32,7 +32,7 @@ class WebService {
             if let jsonData = data {
                 let decoder = JSONDecoder()
                    do {
-                       let photos = try decoder.decode([photo].self, from: jsonData)
+                       let photos = try decoder.decode([Photo].self, from: jsonData)
                 
                        let photosStrArray = photos.compactMap { $0.thumbnailURL }
                        

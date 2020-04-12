@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct photo: Codable {
+struct Photo: Codable {
     let albumID, id: Int?
     let title: String?
     let url, thumbnailURL: String?
@@ -23,5 +23,5 @@ struct photo: Codable {
 
  
 
-typealias Photos = [photo]
+typealias Photos = [Photo]
 

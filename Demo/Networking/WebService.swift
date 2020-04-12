@@ -16,17 +16,11 @@ class WebService {
     
     static let imageCache = ImageCache()
     
-    static let session: URLSession = {
-        let config = URLSessionConfiguration.default
-        return URLSession(configuration: config)
-        }()
-    
-    
     static func getPhotosRequest(successHandler: @escaping (_ photosArray: [String]) -> Void, failureHandler: @escaping () -> Void) {
     
         let url = URL(string: WebServiceUrls.URL_jsonplaceholder_photos)!
         
-        let task = session.dataTask(with: url) {
+        let task = URLSession.shared.dataTask(with: url) {
                (data, response, error) -> Void in
       
             if let jsonData = data {
@@ -59,16 +53,17 @@ class WebService {
     }
     
     
-    static func fetchImage(photoURL: String, successHandler: @escaping (UIImage) -> Void, failureHandler: @escaping () -> Void) {
+    static func fetchImage(photoURL: String, successHandler: @escaping (UIImage) -> Void, failureHandler: @escaping () -> Void) { 
         
         if let image = imageCache.image(forKey: photoURL) {
+           
             DispatchQueue.main.async {
                 successHandler(image)
             }
         }
         
-        let task = session.dataTask(with: URL(string: photoURL)!) {
-               (data, response, error) -> Void in
+        let task = URLSession.shared.dataTask(with: URL(string: photoURL)!) {
+               (data, response, error) -> Void in 
                
             
             if let imageData = data, let image = UIImage(data: imageData) {

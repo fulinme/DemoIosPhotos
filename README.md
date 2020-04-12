@@ -8,7 +8,7 @@
 
 - manual draw mind map
 
-![](requirement.PNG)
+![](/images/requirement_manual_MindMap.png)
 
 
 
@@ -35,7 +35,7 @@ Follow the Apple photos app’s design.
 Uicollectionview with flow layout
 
 
-
+![](/images/iphone_portrait.png)
 
 
  

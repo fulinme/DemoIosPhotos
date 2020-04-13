@@ -55,6 +55,26 @@ class DemoTests: XCTestCase {
         
     }
     
+    
+    func testValidCallWebServiceSuccess() {
+        
+        let promise = expectation(description: "GetPhotos success")
+        var isSuccess = false
+        
+        WebService.getPhotosRequest(successHandler: { photosArray in
+            isSuccess = true
+            promise.fulfill()
+        }, failureHandler: {
+            isSuccess = false
+        })
+        
+        wait(for: [promise], timeout: 5)
+        
+        XCTAssertTrue(isSuccess)
+        
+    }
+    
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

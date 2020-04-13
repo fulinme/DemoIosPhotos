@@ -11,17 +11,40 @@ import XCTest
 
 class CacheTests: XCTestCase {
 
-
+    var sut: ImageCache!
+    
+    var image: UIImage!
+    
+    
+    var thumbnailUrl = "https://via.placeholder.com/150/92c952"
+    
     override func setUpWithError() throws {
-           // Put setup code here. This method is called before the invocation of each test method in the class.
-           
-       }
+        sut = ImageCache()
+        
+        image = UIImage(contentsOfFile: Bundle(for: type(of: self)).path(forResource: "thumbnail", ofType: "png")!)
+        
+        sut.deleteImage(forKey: thumbnailUrl)
+    }
 
     override func tearDownWithError() throws {
-           // Put teardown code here. This method is called after the invocation of each test method in the class.
-           
-           
+        sut = nil
+        image = nil
     }
+    
+
+    
+    
+    
+    func testDemoCacheImageSetSuccess() {
+        
+        sut.setImage(image!, forKey: thumbnailUrl)
+    
+        XCTAssertNotNil(sut.image(forKey: thumbnailUrl))
+        
+    }
+    
+    
+    
 
 
 

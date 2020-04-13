@@ -22,23 +22,6 @@ class PhotosViewTests: XCTestCase {
         
     }
     
-    func testValidCallGetPhotosRequest() {
-        
-        let promise = expectation(description: "WebService.getPhotosRequest: success")
-        
-        WebService.getPhotosRequest(successHandler: { photosArray in
-             promise.fulfill()
-        }, failureHandler: {
-             XCTFail("Error: WebService.getPhotosRequest")
-        })
-        
-        
-        wait(for: [promise], timeout: 5)
-        
-    }
-    
-    
-     
     
  
 
